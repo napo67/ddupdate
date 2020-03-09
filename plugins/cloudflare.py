@@ -68,8 +68,7 @@ class CloudflareAuth(AuthBase):
 
     def __call__(self, r):
         """Implement AuthBase."""
-        r.headers['X-Auth-Email'] = self.email
-        r.headers['X-Auth-Key'] = self.auth_key
+        r.headers['Authorization'] = 'Bearer ' + self.auth_key
         return r
 
 
